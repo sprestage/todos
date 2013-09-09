@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- This is part 2 of my CodeFellows code challenge. -->
+
+<!-- Make a simple html page to manage Todos. It should have an input 
+	field. When the user enters text in the input field, add that input 
+	to the top of the Todo list. When an existing item is clicked, it 
+	should disappear from the page. -->
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Add More Elements</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready (function () {
+            	var count = 0;
+
+                $("button").on('click',function() {
+					count++;
+					var txt5='<li>' + $("#todo").val() + '</li>'
+
+					$("ol").append(txt5);
+					$('li').last().click (function () {
+						$(this).last().remove();
+					});
+				});              
+            }); 
+        </script>
+    </head>
+
+    <body>
+		<p>New Todo Item: <input type="text" id="todo" value=" ">
+			<button>Add to list</button>
+		</p>
+
+		<div class="todos">
+	        <ol></ol>
+
+	    	<h5>(when done with a task, just click the item to remove it from the list)</h5>
+	    </div>
+
+    </body>
+
+    <footer>
+    	<br><br><br><br><br><br><h6>Tested on OS X (10.6.8), with Firefox (23.0.1) and Safari (5.1.2).  Works with Firefox, but fails to delete list items with Safari.</h6>
+    </footer>
+</html>
